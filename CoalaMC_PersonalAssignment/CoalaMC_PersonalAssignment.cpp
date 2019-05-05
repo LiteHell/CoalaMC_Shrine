@@ -8,6 +8,7 @@
 #define locateBricks_s(block, x, y, z) if (sx <= x && x <= ex && sy <= y && y <= ey && sz <= z && z <= ez) locateBricks(block, x, y, z)
 #define lnstallStairs_s(stairs, x, y, z, orientation) if (sx <= x && x <= ex && sy <= y && y <= ey && sz <= z && z <= ez) installStairs(stairs, x, y, z, orientation)
 #define SIMPLE_ORIENTATION calculateOrientation(x, z, sx + offset, sz + offset, ex - offset, ez - offset)
+#define MAKE_ODD(a, b) if((b - a) % 2 == 1) b -= 1
 #define SWAP_IF_NEEDED(A,B) if(A > B) { int t = A; A = B; B = t; } 1 + 1
 
 
@@ -40,6 +41,10 @@ int main()
 	SWAP_IF_NEEDED(sx, ex);
 	SWAP_IF_NEEDED(sy, ey);
 	SWAP_IF_NEEDED(sz, ez);
+
+	// 홀수만
+	MAKE_ODD(sx, ex);
+	MAKE_ODD(sz, ez);
 
 	// 블럭 선언
 	BricksID bricks = createBricks(BRICKS_STONE);
@@ -95,8 +100,8 @@ int main()
 					lnstallStairs_s(stairs, x, y, z, SIMPLE_ORIENTATION);
 
 	// 전등
-	for (int x = sx + 6; x <= ex - 6; x += 3)
-		for (int z = sz + 6; z <= ez - 6; z += 3) {
+	for (int x = sx + 6; x <= ex - 6; x += 2)
+		for (int z = sz + 6; z <= ez - 6; z += 2) {
 			locateBlock_s(glass, x, ey - 1, z);
 			locateBlock_s(light, x, ey, z);
 		}
