@@ -1,6 +1,6 @@
 # 개인과제
 입력받은 공간 안에 서양식 신전을 만드는 과제입니다.
-소개 동영상은 video.mp4입니다. 동영상 파일을 확인할 수 없는 경우 [유튜브](https://youtu.be/niebMRnZKTI)에서도 확인하실 수 있습니다.
+소개 동영상은 video.mp4이며 경우에 따라 [Git LFS](https://git-lfs.github.com/) 설치가 필요할 수도 있습니다. 만약 파일을 여는데 문제가 있는 경우 [유튜브](https://youtu.be/niebMRnZKTI)에서도 확인해주세요.
 
 # 만들어지는 과정
 1. 좌표를 입력받습니다.
